@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://ep-curly-silence-b4c3ozee-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    username: neondb_owner
+    password: npg_6gPKIwuvrCc8
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  sql:
+    init:
+      mode: always
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${GITHUB_CLIENT_ID:Ov23lieQymru5WDamy4X}
+            client-secret: ${GITHUB_CLIENT_SECRET:e1dc9976e7416e4a0de8fa08130faf64ce395ce5}
+            scope: read:user,repo
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+            user-name-attribute: login
+
+# Application custom properties
+app:
+  jwt:
+    secret: ${JWT_SECRET:repomind-super-secret-key-change-in-production-must-be-at-least-256-bits-long}
+    expiration-ms: 86400000  # 24 hours
+
+  fireworks:
+    api-key: ${FIREWORKS_API_KEY:fw_NfuTi5Psq4NLqpu7Ph4xK5}
+    base-url: https://api.fireworks.ai/inference/v1
+    chat-model: accounts/fireworks/models/deepseek-v4-flash-0731
+    embedding-model: nomic-ai/nomic-embed-text-v1.5
+    embedding-dimensions: 768
+
+  frontend:
+    url: http://localhost:5173
+
+  github:
+    api-url: https://api.github.com
