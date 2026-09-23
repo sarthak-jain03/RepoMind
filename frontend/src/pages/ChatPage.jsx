@@ -17,7 +17,7 @@ export default function ChatPage() {
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
   const [fileTree, setFileTree] = useState([]);
 
   const messagesEndRef = useRef(null);
@@ -134,15 +134,21 @@ export default function ChatPage() {
         </div>
       </div>
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden relative">
         {sidebarOpen && (
-          <aside className="w-64 border-r border-zinc-900 bg-black flex-shrink-0 overflow-y-auto scrollbar-none">
-            <FileTree files={fileTree} repoName={repo?.name || 'Repository'} />
-          </aside>
+          <>
+            <div 
+              className="absolute inset-0 bg-black/50 z-10 md:hidden" 
+              onClick={() => setSidebarOpen(false)}
+            />
+            <aside className="absolute md:relative z-20 w-80 md:w-64 h-full border-r border-zinc-900 bg-black flex-shrink-0 overflow-y-auto scrollbar-none shadow-2xl md:shadow-none">
+              <FileTree files={fileTree} repoName={repo?.name || 'Repository'} />
+            </aside>
+          </>
         )}
 
         <div className="flex-1 flex flex-col min-w-0 bg-black">
-          <div className="flex-1 overflow-y-auto px-4 py-6 scrollbar-none">
+          <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-6 scrollbar-none">
             {loading ? (
               <LoadingSpinner message="Loading chat..." />
             ) : messages.length === 0 ? (
@@ -196,8 +202,8 @@ export default function ChatPage() {
             )}
           </div>
 
-          <div className="p-4 bg-black pb-8">
-            <div className="max-w-3xl mx-auto flex items-end gap-3 bg-[#2f2f2f] rounded-[32px] p-2 pl-4 transition-colors">
+          <div className="p-3 md:p-4 bg-black pb-6 md:pb-8">
+            <div className="max-w-3xl mx-auto flex items-end gap-2 md:gap-3 bg-[#2f2f2f] rounded-[24px] md:rounded-[32px] p-2 pl-3 md:pl-4 transition-colors">
               <textarea
                 ref={inputRef}
                 value={input}

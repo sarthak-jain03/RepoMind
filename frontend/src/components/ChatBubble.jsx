@@ -36,7 +36,7 @@ export default function ChatBubble({ message, role, sources, timestamp }) {
       )}
       
       <div className={`flex gap-4 w-full ${isUser ? 'justify-end' : 'justify-start'}`}>
-        <div className={`max-w-[85%]`}>
+        <div className={`max-w-full md:max-w-[85%] overflow-x-auto break-words min-w-0`}>
           <div className={`
             px-5 py-3.5 text-sm leading-relaxed
             ${isUser 
@@ -46,7 +46,7 @@ export default function ChatBubble({ message, role, sources, timestamp }) {
           `}>
             <div className={`prose prose-invert max-w-none prose-sm 
               ${isUser ? 'prose-p:text-zinc-100' : 'prose-p:text-zinc-300'} 
-              prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800
+              prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800 prose-pre:max-w-full prose-pre:overflow-x-auto
               ${!isUser && 'prose-blockquote:border-l-4 prose-blockquote:border-zinc-600 prose-blockquote:pl-4 prose-blockquote:text-zinc-400 prose-blockquote:not-italic'}
             `}>
               <ReactMarkdown
