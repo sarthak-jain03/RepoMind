@@ -16,6 +16,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+
   sql:
     init:
       mode: always
@@ -27,8 +28,11 @@ spring:
           github:
             client-id: ${GITHUB_CLIENT_ID}
             client-secret: ${GITHUB_CLIENT_SECRET}
-            scope: read:user,repo
-            redirect-uri: "{baseUrl}/login/oauth2/code/github"
+            scope:
+              - read:user
+              - repo
+            redirect-uri: "${BACKEND_URL}/login/oauth2/code/github"
+
         provider:
           github:
             authorization-uri: https://github.com/login/oauth/authorize
@@ -36,11 +40,10 @@ spring:
             user-info-uri: https://api.github.com/user
             user-name-attribute: login
 
-# Application custom properties
 app:
   jwt:
     secret: ${JWT_SECRET}
-    expiration-ms: 86400000  # 24 hours
+    expiration-ms: 86400000
 
   fireworks:
     api-key: ${FIREWORKS_API_KEY}
