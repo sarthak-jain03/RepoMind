@@ -112,11 +112,11 @@ export default function LandingPage() {
             <GitHubIcon size={16} />
             <span>GitHub</span>
           </a>
-          <a href="https://linkedin.com/in/sarthak-jain03" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-zinc-300 transition-colors">
+          <a href="https://www.linkedin.com/in/sarthak-jain-3a2b38276/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-zinc-300 transition-colors">
             <LinkedInIcon size={16} />
             <span>LinkedIn</span>
           </a>
-          <a href="mailto:sarthak@example.com" className="flex items-center gap-2 hover:text-zinc-300 transition-colors">
+          <a href="mailto:sarthakjain4452@gmail.com" className="flex items-center gap-2 hover:text-zinc-300 transition-colors">
             <Mail size={16} />
             <span>Email</span>
           </a>
