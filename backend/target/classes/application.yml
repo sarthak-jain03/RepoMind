@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://ep-curly-silence-b4c3ozee-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
-    username: neondb_owner
-    password: npg_6gPKIwuvrCc8
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -25,8 +25,8 @@ spring:
       client:
         registration:
           github:
-            client-id: ${GITHUB_CLIENT_ID:Ov23lieQymru5WDamy4X}
-            client-secret: ${GITHUB_CLIENT_SECRET:e1dc9976e7416e4a0de8fa08130faf64ce395ce5}
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
             scope: read:user,repo
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
         provider:
@@ -39,18 +39,18 @@ spring:
 # Application custom properties
 app:
   jwt:
-    secret: ${JWT_SECRET:repomind-super-secret-key-change-in-production-must-be-at-least-256-bits-long}
+    secret: ${JWT_SECRET}
     expiration-ms: 86400000  # 24 hours
 
   fireworks:
-    api-key: ${FIREWORKS_API_KEY:fw_NfuTi5Psq4NLqpu7Ph4xK5}
+    api-key: ${FIREWORKS_API_KEY}
     base-url: https://api.fireworks.ai/inference/v1
     chat-model: accounts/fireworks/models/deepseek-v4-flash-0731
     embedding-model: nomic-ai/nomic-embed-text-v1.5
     embedding-dimensions: 768
 
   frontend:
-    url: http://localhost:5173
+    url: ${FRONTEND_URL}
 
   github:
     api-url: https://api.github.com
