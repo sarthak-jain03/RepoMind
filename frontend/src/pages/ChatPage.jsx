@@ -113,22 +113,22 @@ export default function ChatPage() {
 
   return (
     <div className="h-screen flex flex-col bg-black pt-16">
-      <div className="border-b border-zinc-900 bg-black px-4 py-2 flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-3">
+      <div className="border-b border-zinc-900 bg-black px-4 py-2 flex items-center shrink-0 min-w-0">
+        <div className="flex items-center gap-3 min-w-0 w-full">
           <button
             onClick={() => navigate('/dashboard')}
-            className="text-zinc-400 hover:text-white p-1 rounded-md transition-colors"
+            className="text-zinc-400 hover:text-white p-1 rounded-md transition-colors shrink-0"
           >
             <ArrowLeft size={16} />
           </button>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-zinc-400 hover:text-white p-1 rounded-md transition-colors"
+            className="text-zinc-400 hover:text-white p-1 rounded-md transition-colors shrink-0"
           >
             {sidebarOpen ? <PanelLeftClose size={16} /> : <PanelLeftOpen size={16} />}
           </button>
-          <div className="h-4 w-px bg-zinc-800 mx-1" />
-          <span className="text-sm font-medium text-zinc-200">
+          <div className="h-4 w-px bg-zinc-800 mx-1 shrink-0" />
+          <span className="text-sm font-medium text-zinc-200 truncate">
             {repo?.fullName || `Repository #${repoId}`}
           </span>
         </div>

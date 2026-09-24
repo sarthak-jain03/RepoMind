@@ -129,19 +129,19 @@ export default function DashboardPage() {
           </div>
         )}
 
-        <div className="flex gap-6 mb-8 text-sm border-b border-zinc-900 pb-4">
-          <div className="flex items-center gap-2 text-zinc-400">
+        <div className="flex flex-wrap gap-4 sm:gap-6 mb-8 text-sm border-b border-zinc-900 pb-4">
+          <div className="flex items-center gap-2 text-zinc-400 shrink-0">
             <Database size={14} />
             <span>{repos.length} total</span>
           </div>
-          <div className="flex items-center gap-2 text-zinc-400">
+          <div className="flex items-center gap-2 text-zinc-400 shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
             <span>{repos.filter(r => r.indexStatus === 'INDEXED').length} indexed</span>
           </div>
           {indexingRepo && (
-            <div className="flex items-center gap-2 text-zinc-400">
-              <Loader2 size={14} className="animate-spin" />
-              <span>Indexing {indexingRepo.name}...</span>
+            <div className="flex items-center gap-2 text-zinc-400 min-w-0">
+              <Loader2 size={14} className="animate-spin shrink-0" />
+              <span className="truncate">Indexing {indexingRepo.name}...</span>
             </div>
           )}
         </div>

@@ -6,12 +6,12 @@ export default function RepoCard({ repo, onIndex, onChat }) {
 
   return (
     <div className="group bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 rounded-lg p-5 transition-colors flex flex-col h-full">
-      <div className="flex justify-between items-start mb-3">
-        <h3 className="font-medium text-zinc-100 text-base truncate pr-4" title={repo.fullName}>
+      <div className="flex justify-between items-start mb-3 gap-2">
+        <h3 className="font-medium text-zinc-100 text-base truncate flex-1" title={repo.fullName}>
           {repo.name}
         </h3>
         {isIndexed && (
-          <div className="flex items-center gap-1 text-[10px] uppercase font-medium tracking-wider text-zinc-400 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-700/50">
+          <div className="flex items-center gap-1 text-[10px] uppercase font-medium tracking-wider text-zinc-400 bg-zinc-800/50 px-2 py-0.5 rounded border border-zinc-700/50 shrink-0">
             <CheckCircle2 size={10} />
             Ready
           </div>

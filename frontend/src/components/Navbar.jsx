@@ -35,11 +35,11 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center shrink-0">
             <span className="text-zinc-950 font-bold text-lg">R</span>
           </div>
-          <span className="text-lg font-semibold text-white tracking-tight">RepoMind</span>
+          <span className="text-lg font-semibold text-white tracking-tight hidden sm:block">RepoMind</span>
         </Link>
 
         <div className="flex items-center gap-4">

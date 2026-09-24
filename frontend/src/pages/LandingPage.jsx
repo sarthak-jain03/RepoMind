@@ -107,7 +107,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="py-8 text-center text-sm text-zinc-500 border-t border-zinc-900">
-        <div className="flex justify-center items-center gap-6 mb-4">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mb-4">
           <a href="https://github.com/sarthak-jain03" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-zinc-300 transition-colors">
             <GitHubIcon size={16} />
             <span>GitHub</span>
