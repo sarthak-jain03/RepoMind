@@ -112,7 +112,7 @@ export default function ChatPage() {
   ];
 
   return (
-    <div className="h-screen flex flex-col bg-black pt-16">
+    <div className="h-dvh flex flex-col bg-black pt-16 overflow-hidden">
       <div className="border-b border-zinc-900 bg-black px-4 py-2 flex items-center shrink-0 min-w-0">
         <div className="flex items-center gap-3 min-w-0 w-full">
           <button
@@ -202,7 +202,7 @@ export default function ChatPage() {
             )}
           </div>
 
-          <div className="p-3 md:p-4 bg-black pb-6 md:pb-8">
+          <div className="p-3 md:p-4 bg-black pb-4 md:pb-8 shrink-0">
             <div className="max-w-3xl mx-auto flex items-end gap-2 md:gap-3 bg-[#2f2f2f] rounded-[24px] md:rounded-[32px] p-2 pl-3 md:pl-4 transition-colors">
               <textarea
                 ref={inputRef}
