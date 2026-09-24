@@ -9,7 +9,7 @@
 
 RepoMind is a **RAG-powered (Retrieval-Augmented Generation) developer assistant** that connects to your GitHub account, indexes your repositories, and lets you ask natural-language questions about your codebase. Get accurate, source-referenced answers grounded in your actual code.
 
-Live Link: https://repomind-rho.vercel.app
+**Live Link: https://repomind-rho.vercel.app**
 
 ![RepoMind Landing Page](assests/homepage.png)
 
