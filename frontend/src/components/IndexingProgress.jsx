@@ -7,12 +7,12 @@ export default function IndexingProgress({ status }) {
   
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center gap-2 text-sm font-medium text-zinc-200">
-          <Loader2 size={14} className="animate-spin text-zinc-400" />
-          {message}
+      <div className="flex justify-between items-center mb-3 gap-3">
+        <div className="flex items-center gap-2 text-sm font-medium text-zinc-200 min-w-0">
+          <Loader2 size={14} className="animate-spin text-zinc-400 shrink-0" />
+          <span className="truncate">{message}</span>
         </div>
-        <span className="text-xs font-medium text-zinc-400">
+        <span className="text-xs font-medium text-zinc-400 shrink-0">
           {Math.round(progressPercent)}%
         </span>
       </div>
