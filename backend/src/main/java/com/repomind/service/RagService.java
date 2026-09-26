@@ -13,7 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Service
 public class RagService {
@@ -135,6 +135,9 @@ public class RagService {
 
             return "I received an empty response. Please try again.";
 
+        } catch (WebClientResponseException e) {
+            log.error("Fireworks.ai API error: HTTP {} - {}", e.getStatusCode(), e.getResponseBodyAsString(), e);
+            return "I encountered an API error with the AI provider. Details: " + e.getResponseBodyAsString();
         } catch (Exception e) {
             log.error("Failed to call Fireworks.ai chat completion: {}", e.getMessage(), e);
             return "I encountered an error while processing your request. Please try again later. Error: " + e.getMessage();
