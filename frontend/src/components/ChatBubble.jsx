@@ -16,9 +16,25 @@ export default function ChatBubble({ message, role, sources, timestamp }) {
   ) : [];
 
   const formatTime = (isoString) => {
-    if (!isoString) return '11:05 AM'; // fallback
+    if (!isoString) return 'Today 11:05 AM'; // fallback
     const date = new Date(isoString);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const now = new Date();
+    
+    const isToday = date.getDate() === now.getDate() && 
+                    date.getMonth() === now.getMonth() && 
+                    date.getFullYear() === now.getFullYear();
+                    
+    const yesterday = new Date(now);
+    yesterday.setDate(now.getDate() - 1);
+    const isYesterday = date.getDate() === yesterday.getDate() && 
+                        date.getMonth() === yesterday.getMonth() && 
+                        date.getFullYear() === yesterday.getFullYear();
+                        
+    const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    if (isToday) return `Today ${timeStr}`;
+    if (isYesterday) return `Yesterday ${timeStr}`;
+    return `${date.toLocaleDateString()} ${timeStr}`;
   };
 
   const handleCopy = () => {
@@ -31,7 +47,7 @@ export default function ChatBubble({ message, role, sources, timestamp }) {
     <div className={`flex flex-col w-full mb-6 ${isUser ? 'items-end' : 'items-start'}`}>
       {isUser && (
         <div className="text-xs text-zinc-400 mb-2">
-          Yesterday {formatTime(timestamp)}
+          {formatTime(timestamp)}
         </div>
       )}
       
