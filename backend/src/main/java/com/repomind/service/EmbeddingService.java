@@ -88,6 +88,7 @@ public class EmbeddingService {
         }
     }
 
+
     
     public String vectorToString(float[] vector) {
         if (vector == null) return null;
