@@ -25,7 +25,7 @@ public interface CodeChunkRepository extends JpaRepository<CodeChunk, Long> {
         SELECT c.* FROM code_chunks c
         WHERE c.repo_id = :repoId
         AND c.embedding IS NOT NULL
-        ORDER BY c.embedding::vector <=> cast(:queryVector as vector)
+        ORDER BY cast(c.embedding as vector) <=> cast(:queryVector as vector)
         LIMIT :topK
         """, nativeQuery = true)
     List<CodeChunk> findSimilarChunks(
