@@ -126,7 +126,6 @@ public class CodeChunker {
                         currentLine - 1,
                         chunkIndex++
                 ));
-
                 
                 String chunkStr = currentChunk.toString();
                 String[] chunkLines = chunkStr.split("\n");
